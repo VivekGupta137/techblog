@@ -32,10 +32,6 @@ function MyCodeBlock({
       theme={theme == "light" ? themes.oneLight : themes.oneDark}
     >
       <Card className="text-sm relative">
-        <div className="absolute right-0">
-          <CopyButton code={children} />
-        </div>
-
         {filename && (
           <div className="text-muted-foreground ml-4 flex items-center gap-2 my-1">
             {language && <div>{fileIcon[language]}</div>}

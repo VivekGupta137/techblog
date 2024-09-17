@@ -1,7 +1,5 @@
-import MyCodeBlock from "@/components/MyCodeBlock";
-import { Badge, badgeVariants } from "@/components/ui/badge";
-import { Link1Icon, OpenInNewWindowIcon } from "@radix-ui/react-icons";
-import { Link2, LucideLink, SquareArrowOutUpRight } from "lucide-react";
+import { badgeVariants } from "@/components/ui/badge";
+import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
 
 

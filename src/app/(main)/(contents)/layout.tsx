@@ -15,8 +15,8 @@ const Layout = ({
         </div>
         <div className="pl-[300px] grow">{children}</div>
       </div>
-      <div className="pl-[200px]">
-        {/* <Footer /> */}
+      <div className="pl-[300px]">
+        <Footer />
       </div>
     </div>
   );

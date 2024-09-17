@@ -1,6 +1,5 @@
 import type { MDXComponents } from "mdx/types";
 import Image, { ImageProps } from "next/image";
-import MyCodeBlock from "./components/MyCodeBlock";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
