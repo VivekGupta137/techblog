@@ -1,0 +1,92 @@
+import { GoodItem } from "@/components/GoodItem";
+import MyCodeBlock from "@/components/MyCodeBlock";
+import BadgeLink from "@/components/BadgeLink";
+import ReduxExample from "@/components/state-management/redux/ReduxExample";
+
+# Redux
+A predictable state container for JavaScript apps, Redux is one of the most popular state management libraries for React.
+
+<div className="mt-4">
+  <BadgeLink href="#" label="Docs" />
+</div>
+
+## Demo
+Following is a simple counter app using Redux.
+
+<ReduxExample />
+
+
+## Core concept
+The whole global state of your app is stored in an object tree inside a single store. 
+The only way to change the state tree is to create an action, an object describing what happened, and dispatch it to the store. 
+To specify how state gets updated in response to an action, you write pure reducer functions that calculate a new state based on the old state and the action.
+
+## Installation
+First you will need to install the following set of libraries:
+
+```sh
+bun add @reduxjs/toolkit react-redux
+```
+
+## Usage
+Create a file `CounterRedux.tsx` and add the following code:
+
+```tsx showLineNumbers title="CounterRedux.tsx"
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import CounterRedux from "./CounterRedux";
+
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: {
+    value: 0,
+  },
+  reducers: {
+    incremented: (state) => {
+      state.value += 1;
+    },
+    decremented: (state) => {
+      state.value -= 1;
+    },
+  },
+});
+
+export const { incremented, decremented } = counterSlice.actions;
+
+const store = configureStore({
+  reducer: {
+    counter: counterSlice.reducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+
+const ReduxExample = () => {
+  return (
+    <Provider store={store}>
+      <CounterRedux />
+    </Provider>
+  );
+};
+
+export default ReduxExample;
+```
+
+Create another file `CounterRedux.tsx` and add the following code:
+
+```tsx showLineNumbers title="CounterRedux.tsx"
+const CounterRedux = () => {
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <button onClick={() => dispatch(decremented())}>-</button>
+      <span>{count}</span>
+      <button onClick={() => dispatch(incremented())}>+</button>
+    </div>
+  );
+};
+
+export default CounterRedux;
+```
