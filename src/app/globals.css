@@ -102,10 +102,13 @@ figure[data-rehype-pretty-code-figure] {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  
+  width: 100% !important;
 }
 
 figure[data-rehype-pretty-code-figure] pre{
+  overflow-x: auto;
+}
+figure[data-rehype-pretty-code-figure] code{
   overflow-x: auto;
 }
 
@@ -114,6 +117,7 @@ figcaption[data-rehype-pretty-code-title] {
   font-weight: 600;
   color: hsl(var(--muted-foreground));
   margin-bottom: 0.5rem;
+  
 }
 
 html.light code[data-theme*=" "],
@@ -127,3 +131,4 @@ html.dark code[data-theme*=" "] span {
   color: var(--shiki-dark);
   background-color: var(--shiki-dark-bg);
 }
+

@@ -21,6 +21,7 @@ const Counter = ({ count, increment, decrement }: CounterProps) => {
                 size={"icon"}
                 disabled={count === -10}
                 onClick={decrement}
+                aria-label="Decrement"
               >
                 <Minus />
               </Button>
@@ -40,6 +41,7 @@ const Counter = ({ count, increment, decrement }: CounterProps) => {
                 size={"icon"}
                 disabled={count === 10}
                 onClick={increment}
+                aria-label="Increment"
               >
                 <Plus />
               </Button>

@@ -10,12 +10,12 @@ const Layout = ({
   return (
     <div>
       <div className="flex gap-5 relative">
-        <div className="border-r fixed w-[300px]">
+        <div className="hidden border-r fixed md:block md:w-[200px] lg:w-[300px] ">
           <Contents />
         </div>
-        <div className="pl-[300px] grow">{children}</div>
+        <div className="md:pl-[200px] lg:pl-[300px] grow w-full">{children}</div>
       </div>
-      <div className="pl-[300px]">
+      <div className="md:pl-[200px] lg:pl-[300px]">
         <Footer />
       </div>
     </div>
