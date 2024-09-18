@@ -1,0 +1,91 @@
+import BadgeLink from "@/components/BadgeLink";
+import ContextExample from "@/components/state-management/context/ContextExample";
+
+# Context with useReducer
+The Context API is used to pass data through the component tree, and useReducer is a hook that is used for state management.
+
+
+<div className="mt-4">
+  <BadgeLink href="https://zustand-demo.pmnd.rs/" label="Docs" />
+</div>
+
+## Demo
+Following is a simple counter app using Context API with useReducer.
+<ContextExample />
+
+## Core concept
+Combining Context API with useReducer provides a Redux-like approach, where you manage state in a central place and dispatch actions to update the state.
+
+## Installation
+There's nothing to install. You can use the Context API and useReducer hook that comes with React.
+
+
+## Usage
+Create a file `CounterContext.tsx` and add the following code:
+
+```tsx showLineNumbers title="CounterContext.tsx"
+import { createContext, Dispatch } from "react";
+
+type ActionType = {
+    type: string;
+}
+
+export const CounterContext = createContext<number>(0);
+export const DispatchContext = createContext<Dispatch<ActionType>>(() => {});
+```
+
+Create another file `ContextExample.tsx` and add the following code:
+
+```tsx showLineNumbers title="ContextExample.tsx"
+import { useReducer } from "react";
+import { CounterContext, DispatchContext } from "./CounterContext";
+import CounterExample from "./CounterExample";
+
+type ActionType = {
+  type: string;
+};
+
+const counterReducer = (state: number, action: ActionType) => {
+  switch (action.type) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    default:
+      return state;
+  }
+};
+
+const ContextExample = () => {
+  const [count, dispatch] = useReducer(counterReducer, 0);
+
+  return (
+    <CounterContext.Provider value={count}>
+      <DispatchContext.Provider value={dispatch}>
+        <CounterExample />
+      </DispatchContext.Provider>
+    </CounterContext.Provider>
+  );
+}
+ 
+export default ContextExample;
+```
+
+Create another file `CounterExample.tsx` and add the following code:
+
+```tsx showLineNumbers title="CounterExample.tsx"
+import { useContext } from "react";
+import { CounterContext, DispatchContext } from "./CounterContext";
+import Counter from "../Counter";
+
+const CounterExample = () => {
+    const count = useContext(CounterContext);
+    const dispatch = useContext(DispatchContext);
+
+    const handleIncrement = () => dispatch({ type: "increment" });
+    const handleDecrement = () => dispatch({ type: "decrement" });
+    return ( <Counter count = { count } increment={handleIncrement} decrement={handleDecrement} />);
+}
+ 
+export default CounterExample;
+```

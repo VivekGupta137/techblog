@@ -1,0 +1,47 @@
+import BadgeLink from "@/components/BadgeLink";
+import ZustandExample from "@/components/state-management/zustand/ZustandExample";
+
+# Zustand
+Simpler and easier to get started with. It's more lightweight and intuitive for smaller applications or when you just need state without a lot of boilerplate.
+
+<div className="mt-4">
+  <BadgeLink href="https://zustand-demo.pmnd.rs/" label="Docs" />
+</div>
+
+## Demo
+Following is a simple counter app using zustand.
+<ZustandExample />
+
+## Core concept
+Zustand is a small, fast and scaleable bearbones state-management solution using a simple hook based API that creates a global store for your project.
+It's great for simple and moderate state management. It can manage complex state but doesn't provide the same structured approach as Redux.
+
+## Installation
+First you will need to install the following library:
+
+```sh
+bun add zustand
+```
+
+## Usage
+Create a file `ZustandExample.tsx` and add the following code:
+
+```tsx showLineNumbers title="ZustandExample.tsx"
+import { create } from "zustand";
+import Counter from "../Counter";
+
+const useCountStore = create<State & Actions>((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+}));
+
+const ZustandExample = () => {
+  const count = useCountStore((state) => state.count);
+  const increment = useCountStore((state) => state.increment);
+  const decrement = useCountStore((state) => state.decrement);
+
+  return <Counter count={count} increment={increment} decrement={decrement} />;
+};
+
+```
