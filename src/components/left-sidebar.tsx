@@ -10,14 +10,18 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
+import MobileContents from "./MobileContents";
 
 const LeftSidebar = () => {
   return (
     <TooltipProvider>
       <div className="fixed border-r inset-y h-full flex flex-col">
-        <div className="border-b p-2">
+        <div className="border-b p-2 md:hidden">
+          <MobileContents />
+        </div>
+        <div className="border-b p-2 hidden md:block">
           <Button variant="outline" size="icon" aria-label="Home">
-            <Triangle className="size-5 fill-foreground" />
+            <Triangle className="size-5 fill-foreground rotate-180" />
           </Button>
         </div>
 
