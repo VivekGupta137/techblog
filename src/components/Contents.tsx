@@ -6,29 +6,20 @@ import { cx } from "class-variance-authority";
 
 const Contents = () => {
   const docs = [
-    // {
-    //   title: "Introduction",
-    //   child: [
-    //     {
-    //       title: "About me",
-    //       url: "/about",
-    //     },
-    //   ],
-    // },
     {
       title: "State Management",
       child: [
         {
           title: "Context API",
-          url: "/state-management/context",
+          url: "/react/state-management/context",
         },
         {
           title: "Redux",
-          url: "/state-management/redux",
+          url: "/react/state-management/redux",
         },
         {
           title: "Zustand",
-          url: "/state-management/zustand",
+          url: "/react/state-management/zustand",
         },
       ],
     },

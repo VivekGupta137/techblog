@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 const Page = () => {
-    redirect("/state-management/context");
+    redirect("/about");
 }
  
 export default Page;

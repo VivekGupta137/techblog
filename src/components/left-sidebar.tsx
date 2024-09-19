@@ -1,9 +1,5 @@
 import { Button } from "./ui/button";
-import {
-  Book,
-  SquareUser,
-  Triangle,
-} from "lucide-react";
+import { Book, SquareUser, Triangle } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -11,56 +7,106 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import MobileContents from "./MobileContents";
+import { SiGithub, SiLinkedin, SiReact } from "react-icons/si";
+import Link from "next/link";
 
 const LeftSidebar = () => {
   return (
     <TooltipProvider>
-      <div className="fixed border-r inset-y h-full flex flex-col">
+      <div className="fixed border-r inset-y h-full flex flex-col z-[1]">
         <div className="border-b p-2 md:hidden">
           <MobileContents />
         </div>
         <div className="border-b p-2 hidden md:block">
-          <Button variant="outline" size="icon" aria-label="Home">
-            <Triangle className="size-5 fill-foreground rotate-180" />
-          </Button>
+          <Link href={"/about"}>
+            <Button
+              variant="outline"
+              size="icon"
+              aria-label="Home"
+              className="group"
+            >
+              <Triangle className="size-5 fill-foreground rotate-180 group-hover:hidden" />
+              <div className="hidden group-hover:block">VG</div>
+            </Button>
+          </Link>
         </div>
 
         <div className="p-2">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="rounded-lg"
-                aria-label="Documentation"
-              >
-                <Book className="size-5" />
-              </Button>
+              <Link href="/react">
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="rounded-lg group"
+                  aria-label="React"
+                >
+                  <SiReact className="size-7 text-blue-500 group-hover:animate-[spin_5s_linear_infinite]" />
+                </Button>
+              </Link>
             </TooltipTrigger>
             <TooltipContent side="right" sideOffset={5}>
-              Documentation
+              React
             </TooltipContent>
           </Tooltip>
         </div>
 
         <div className="mt-auto">
-            <div className="p-2">
+        <div className="m-2">
             <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="mt-auto rounded-lg"
-                aria-label="Account"
-              >
-                <SquareUser className="size-5" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="right" sideOffset={5}>
-              Account
-            </TooltipContent>
-          </Tooltip>
-            </div>
+              <TooltipTrigger asChild>
+                <Link href="https://www.linkedin.com/in/vivek-gupta137/">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="mt-auto rounded-lg"
+                    aria-label="Account"
+                  >
+                    <SiLinkedin className="size-5" />
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="right" sideOffset={5}>
+                My LinkedIn profile
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div className="m-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link href="https://github.com/VivekGupta137/techblog">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="mt-auto rounded-full"
+                    aria-label="Account"
+                  >
+                    <SiGithub className="size-5" />
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="right" sideOffset={5}>
+                Github repo for this blog
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div className="m-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="mt-auto rounded-lg"
+                  aria-label="Account"
+                >
+                  VG
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="right" sideOffset={5}>
+                About me
+              </TooltipContent>
+            </Tooltip>
+          </div>
         </div>
       </div>
     </TooltipProvider>
