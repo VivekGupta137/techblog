@@ -131,4 +131,3 @@ html.dark code[data-theme*=" "] span {
   color: var(--shiki-dark);
   background-color: var(--shiki-dark-bg);
 }
-

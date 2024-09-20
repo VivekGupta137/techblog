@@ -52,7 +52,7 @@ const LeftSidebar = () => {
         </div>
 
         <div className="mt-auto">
-        <div className="m-2">
+          <div className="m-2">
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link href="https://www.linkedin.com/in/vivek-gupta137/">
@@ -93,14 +93,16 @@ const LeftSidebar = () => {
           <div className="m-2">
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="mt-auto rounded-lg"
-                  aria-label="Account"
-                >
-                  VG
-                </Button>
+                <Link href="/about">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="mt-auto rounded-lg"
+                    aria-label="Account"
+                  >
+                    VG
+                  </Button>
+                </Link>
               </TooltipTrigger>
               <TooltipContent side="right" sideOffset={5}>
                 About me

@@ -29,7 +29,7 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { FaCheckCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
-
+import Loader from "./ui/animated/Loader";
 
 const ConnectDialog = () => {
   const form = useForm<z.infer<typeof connectFormSchema>>({
@@ -50,39 +50,45 @@ const ConnectDialog = () => {
     const sendEmailWithData = sendEmail.bind(null, values);
     const resp = await sendEmailWithData();
     setPending(false);
-    console.log("Response from server", {resp});
-    if(resp.success){
-        // setOpenDialog(false);
-        toast({
-            title: "Email sent successfully",
-            description: "Will get back to you soon.",
-            action: <FaCheckCircle className="size-5 text-green-600" />
-        });
-    }
-    else{
-        toast({
-            title: "Failed to send email",
-            description: resp.error,
-            variant: "destructive",
-            action: <ImCross />
-
-        });
+    console.log("Response from server", { resp });
+    if (resp.success) {
+      // setOpenDialog(false);
+      toast({
+        title: "Email sent successfully",
+        description: "Will get back to you soon.",
+        action: <FaCheckCircle className="size-5 text-green-600" />,
+      });
+    } else {
+      toast({
+        title: "Failed to send email",
+        description: resp.error,
+        variant: "destructive",
+        action: <ImCross />,
+      });
     }
   }
 
   return (
-    <Dialog open={openDialog} onOpenChange={(open)=>{
+    <Dialog
+      open={openDialog}
+      onOpenChange={(open) => {
         setOpenDialog(open);
-    }}>
+      }}
+    >
       <DialogTrigger asChild>
-        <Button variant="default" onClick={()=>{
+        <Button
+          variant="default"
+          onClick={() => {
             setOpenDialog(true);
-        }}>Connect</Button>
+          }}
+        >
+          Connect
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Let&apos;s connect 🙂</DialogTitle>
-          <DialogDescription></DialogDescription>
+          <DialogDescription>Reach out for collaboration, career guidance, or job opportunities.</DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
@@ -120,7 +126,9 @@ const ConnectDialog = () => {
               )}
             />
             <DialogFooter>
-              <Button type="submit" disabled={pending}>Send email 🚀</Button>
+              <Button type="submit" disabled={pending} loading={pending}>
+                Send email 🚀
+              </Button>
             </DialogFooter>
           </form>
         </Form>
