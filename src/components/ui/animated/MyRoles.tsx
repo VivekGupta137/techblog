@@ -41,7 +41,7 @@ const MyRoles = () => {
           layout
           transition={{ type: "spring"}}
         >
-          Also a
+          Also I'm
         </motion.div>
         <AnimatePresence mode="wait">
           {roles.map(
