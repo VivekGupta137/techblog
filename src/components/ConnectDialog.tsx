@@ -27,7 +27,6 @@ import { connectFormSchema } from "@/lib/utils";
 import { sendEmail } from "@/actions/emailAction";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { ToastAction } from "./ui/toast";
 import { FaCheckCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
@@ -82,7 +81,7 @@ const ConnectDialog = () => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Let's connect 🙂</DialogTitle>
+          <DialogTitle>Let&apos;s connect 🙂</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
 

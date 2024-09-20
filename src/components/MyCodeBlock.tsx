@@ -3,7 +3,6 @@ import { CodeBlock } from "react-code-block";
 import { Card } from "./ui/card";
 import { SiJavascript } from "react-icons/si";
 import { SiTypescript } from "react-icons/si";
-import CopyButton from "./CopyButton";
 import { themes } from "prism-react-renderer";
 import { useTheme } from "next-themes";
 

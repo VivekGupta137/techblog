@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import { Book, SquareUser, Triangle } from "lucide-react";
+import { Triangle } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,

@@ -1,5 +1,4 @@
 "use client";
-import { SiReact } from "react-icons/si";
 import { Button } from "../button";
 import { motion } from "framer-motion";
 

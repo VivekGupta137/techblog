@@ -1,6 +1,4 @@
 import { ThemeToggle } from "./ThemeToggle";
-import MobileContents from "./MobileContents";
-import { Button } from "./ui/button";
 import ConnectDialog from "./ConnectDialog";
 
 const Header = () => {
