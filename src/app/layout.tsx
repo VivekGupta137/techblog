@@ -22,7 +22,7 @@ const gtwalsheimpro = localFont({
 });
 
 const gtwalsheimboldpro = localFont({
-  src: "./fonts/GTWalsheimProbold.woff",
+  src: "./fonts/GTWalsheimProBold.woff",
   variable: "--font-gt-bold",
   weight: "100 900",
 });
