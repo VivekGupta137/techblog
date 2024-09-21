@@ -9,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Button } from "./ui/button";
 
 const MiniSkills = () => {
   const skills = [
@@ -63,10 +64,10 @@ const MiniSkills = () => {
       {/* skills */}
       {skills.map((skill) => (
         <Popover key={skill.title}>
-          <PopoverTrigger>
-            <div className="p-2 rounded-full bg-background dark:bg-background-dark hover:shadow-md">
+          <PopoverTrigger asChild>
+            <Button aria-label={skill.title} variant={"ghost"} className="p-2 rounded-full bg-background dark:bg-background-dark ">
               {skill.icon}
-            </div>
+            </Button>
           </PopoverTrigger>
           <PopoverContent className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 max-w-xs md:max-w-sm">
             <div className="text-sm space-y-2">

@@ -45,6 +45,7 @@
     "@reduxjs/toolkit": "^2.2.7",
     "@rehype-pretty/transformers": "^0.13.2",
     "@types/mdx": "^2.0.13",
+    "@vercel/speed-insights": "^1.0.12",
     "add": "^2.0.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
