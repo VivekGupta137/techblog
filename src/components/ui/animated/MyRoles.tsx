@@ -4,7 +4,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const MyRoles = () => {
-  const roles = ["Software Engineer", "Full Stack Developer", "Tech Enthusiast"];
+  const roles = [
+    "Sr. Software Engineer",
+    "Full Stack Developer",
+    "Tech Enthusiast",
+  ];
   const [showIdx, setShowIdx] = useState(0);
 
   useEffect(() => {
@@ -14,7 +18,7 @@ const MyRoles = () => {
     return () => {
       clearInterval(counter);
     };
-  }, []);
+  }, [roles]);
 
   const variants = {
     enter: {
@@ -37,28 +41,33 @@ const MyRoles = () => {
   return (
     <LayoutGroup>
       <motion.div className="flex gap-2 text-2xl">
-        <motion.div
-          layout
-          transition={{ type: "spring"}}
-        >
-          Also I'm
-        </motion.div>
         <AnimatePresence mode="wait">
           {roles.map(
             (role, idx) =>
               idx == showIdx && (
                 <motion.div
-                  key={idx}
-                  variants={variants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    y: { type: "spring" },
-                  }}
-                  className="font-bold"
+                  key={"wrap"}
+                  className="flex gap-1.5 justify-center"
                 >
-                  {role}
+                  <motion.div
+                    layout={"position"}
+                    transition={{ type: "spring" }}
+                  >
+                    I&apos;m
+                  </motion.div>
+                  <motion.div
+                    key={role}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      y: { type: "spring" },
+                    }}
+                    className="font-gt-bold"
+                  >
+                    {role}
+                  </motion.div>
                 </motion.div>
               )
           )}

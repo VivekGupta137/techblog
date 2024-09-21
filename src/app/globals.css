@@ -67,6 +67,17 @@
   }
 }
 
+@layer utilities {
+  .font-gt-bold {
+    font-family: var(--font-gt-bold);
+    letter-spacing: -.025em;
+  }
+  .font-gt-reg {
+    font-family: var(--font-gt-regular);
+    letter-spacing: -.012em;
+  }
+}
+
 code[data-line-numbers] {
   counter-reset: line;
 }

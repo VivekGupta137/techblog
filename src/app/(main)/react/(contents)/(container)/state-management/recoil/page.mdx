@@ -1,0 +1,67 @@
+import BadgeLink from "@/components/BadgeLink";
+import RecoilMain from "@/components/state-management/recoil/RecoilMain";
+
+# Recoil
+Simpler and easier to get started with. It's more lightweight and intuitive for smaller applications or when you just need state without a lot of boilerplate.
+
+<div className="mt-4">
+  <BadgeLink href="https://recoiljs.org/" label="Docs" />
+</div>
+
+## Demo
+Following is a simple counter app using recoil.
+<RecoilMain />
+
+## Core concept
+
+
+## Installation
+First you will need to install the following library:
+
+```sh
+bun add recoil
+```
+
+## Usage
+Create a file `RecoilMain.tsx` and add the following code:
+
+```tsx showLineNumbers title="RecoilMain.tsx"
+import { RecoilRoot, atom } from "recoil";
+import RecoilCounter from "./RecoilCounter";
+
+type countStateType = number;
+
+export const countState = atom<countStateType>({
+  key: "countState",
+  default: 0,
+});
+
+const RecoilMain = () => {
+  return (
+    <div>
+      <RecoilRoot>
+        <RecoilCounter />
+      </RecoilRoot>
+    </div>
+  );
+};
+
+export default RecoilMain;
+```
+
+Create a file `RecoilCounter.tsx` and add the following code:
+
+```tsx showLineNumbers title="RecoilCounter.tsx"
+import { useRecoilState } from "recoil";
+import { countState } from "./RecoilMain";
+import Counter from "../Counter";
+
+const RecoilCounter = () => {
+    const [count, setCount] = useRecoilState(countState);
+    const increment = () => setCount(count + 1);
+    const decrement = () => setCount(count - 1);
+    return ( <Counter count={count} increment={increment} decrement={decrement} /> );
+}
+ 
+export default RecoilCounter;
+```

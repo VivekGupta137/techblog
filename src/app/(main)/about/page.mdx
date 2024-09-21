@@ -1,7 +1,14 @@
 import { Card } from "@/components/ui/card";
 import MyRoles from "@/components/ui/animated/MyRoles";
+import MiniSkills from "@/components/MiniSkills";
 import Image from "next/image";
 import Link from "next/link";
+import { FaReact } from "react-icons/fa";
+import { SiSpring } from "react-icons/si";
+import { SiDocker } from "react-icons/si";
+import { FaAws } from "react-icons/fa6";
+import { TbSql } from "react-icons/tb";
+import { SiApachespark } from "react-icons/si";
 
 <div className="flex justify-center mt-10">
     <Image src="/assets/me.jpg" alt="vivek profile pic" width={150} height={150} quality={100} className="rounded-full"/>
@@ -10,10 +17,33 @@ import Link from "next/link";
 
 
 <div className="max-w-[500px] mx-auto px-2 mt-5">
-<div className="flex flex-col justify-center items-center">
-# Hi, Vivek Gupta here
-<MyRoles />
-</div>
+    <div className="flex flex-col justify-center items-center">
+        # Vivek Gupta
+        <div className="mt-4">
+            <MyRoles />
+        </div>
+    </div>
+
+    <div className="mt-10">
+        <div className="flex justify-center items-start gap-2">
+            <div>
+                <div className="dark:contrast-200 dark:grayscale dark:brightness-[5]">
+                    <Image src="/assets/visa.png" alt="working at visa" width={50} height={17} quality={100} className="contrast-100" />
+                </div>
+                <div className="text-sm text-muted-foreground">(Current)</div>
+            </div>
+            <div className="border rounded-full w-2 h-2 bg-primary self-center"></div>
+            <div className="flex items-center gap-2">
+                <div>
+                    <Image src="/assets/wd-logo.png" alt="worked at western digital" height={20} width={25} quality={100} className="contrast-200" />
+                </div>           
+                <div className="font-semibold">Western Digital</div>
+            </div>
+        </div>
+    </div>
+
+<MiniSkills />
+
 
 ## About me
 Hey! I&apos;m a full-stack web developer with a passion for modern web technologies like React, Next.js, and GraphQL. I love building scalable, user-friendly applications, and I&apos;ve worked on everything from small websites to complex projects using tools like urql, Docker, and Spring Boot. I also hold a Master&apos;s degree from IIIT Bangalore, where I sharpened my skills in computer science and development.

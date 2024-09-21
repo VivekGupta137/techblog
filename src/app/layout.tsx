@@ -15,6 +15,18 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const gtwalsheimpro = localFont({
+  src: "./fonts/GTWalsheimProRegular.woff",
+  variable: "--font-gt-regular",
+  weight: "100 900",
+});
+
+const gtwalsheimboldpro = localFont({
+  src: "./fonts/GTWalsheimProbold.woff",
+  variable: "--font-gt-bold",
+  weight: "100 900",
+});
+
 export const metadata: Metadata = {
   title: "Vivek's blog",
   description:
@@ -29,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${gtwalsheimpro.variable} ${gtwalsheimboldpro.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

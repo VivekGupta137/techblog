@@ -21,6 +21,10 @@ const Contents = () => {
           title: "Zustand",
           url: "/react/state-management/zustand",
         },
+        {
+          title: "Recoil",
+          url: "/react/state-management/recoil",
+        },
       ],
     },
   ];
@@ -28,18 +32,18 @@ const Contents = () => {
 
   return (
     <div className="pl-6">
-      <ScrollArea className="w-full h-[calc(100vh-53px)]  rounded-md">
+      <ScrollArea className="w-full h-[calc(100vh-53px)] rounded-md">
         <div className="py-6">
-          <h4 className="mb-4 text-sm font-medium leading-none">Contents</h4>
+          <h4 className="mb-4 text-sm font-medium leading-none font-gt-bold">Contents</h4>
           {docs.map((doc) => (
             <div key={doc.title} className="mb-4">
-              <div className="text-sm font-medium">{doc.title}</div>
+              <div className="text-sm font-medium ">{doc.title}</div>
               <div className="ml-2 mt-2 border-l">
                 {doc.child.map((child) => (
                   <div
                     key={child.title}
                     className={cx(
-                      "pl-4 py-1 text-sm text-muted-foreground hover:underline",
+                      "pl-4 py-1 text-sm text-muted-foreground hover:underline font-gt-reg",
                       pathName === child.url
                         ? "border-primary border-l-4 text-primary"
                         : ""

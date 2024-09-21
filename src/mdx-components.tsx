@@ -4,12 +4,12 @@ import Image, { ImageProps } from "next/image";
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({ children }) => (
-      <h1 className="text-4xl font-bold tracking-tight text-primary">
+      <h1 className="text-4xl text-primary font-gt-bold ">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
+      <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0 font-gt-bold">
         {children}
       </h2>
     ),
@@ -22,7 +22,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     
     p: ({ children }) => (
-      <p className="text-sm text-muted-foreground mt-2 mb-4">{children}</p>
+      <p className="dark:text-muted-foreground mt-2 mb-4 font-gt-reg">{children}</p>
     ),
     ...components,
   };

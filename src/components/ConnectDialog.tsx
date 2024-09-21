@@ -29,7 +29,6 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { FaCheckCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
-import Loader from "./ui/animated/Loader";
 
 const ConnectDialog = () => {
   const form = useForm<z.infer<typeof connectFormSchema>>({
