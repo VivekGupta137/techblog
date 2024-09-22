@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import Image, { ImageProps } from "next/image";
+import Link from "next/link";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -24,6 +25,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children }) => (
       <p className="dark:text-muted-foreground mt-2 mb-4 font-gt-reg">{children}</p>
     ),
+    a: ({ children, href }) => (
+      <Link
+        className="text-primary hover:underline dark:text-muted-foreground"
+        href={href as string}
+      >
+        {children}
+      </Link>
+    ),
+
+    ul: ({ children }) => <ul className="list-disc ml-6 dark:text-muted-foreground font-gt-reg">{children}</ul>,
+    strong: ({ children }) => <strong className="font-gt-bold">{children}</strong>,
     ...components,
   };
 }

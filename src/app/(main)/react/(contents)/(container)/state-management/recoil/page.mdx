@@ -2,18 +2,19 @@ import BadgeLink from "@/components/BadgeLink";
 import RecoilMain from "@/components/state-management/recoil/RecoilMain";
 
 # Recoil
-Simpler and easier to get started with. It's more lightweight and intuitive for smaller applications or when you just need state without a lot of boilerplate.
-
+Recoil uniquely offers fine-grained reactivity, allowing components to subscribe only to the specific pieces of state they use, and supports asynchronous state management with built-in tools like selectors for derived or async state, unlike many other libraries.
 <div className="mt-4">
   <BadgeLink href="https://recoiljs.org/" label="Docs" />
 </div>
 
-## Demo
+## Demo \#1 (Counter App)
 Following is a simple counter app using recoil.
 <RecoilMain />
 
 ## Core concept
-
+Its core concept revolves around atoms and selectors.
+* **Atoms**: Atoms represent the state of our application. They are the smallest unit of state in Recoil.
+* **Selectors**: Selectors are derived state. They are used to calculate the state based on the atoms.
 
 ## Installation
 First you will need to install the following library:
@@ -64,4 +65,17 @@ const RecoilCounter = () => {
 }
  
 export default RecoilCounter;
+```
+
+## Demo \#2 (Fetching user data)
+Following is a simple example of fetching user data using recoil.
+
+**API :** [https://jsonplaceholder.typicode.com/users/1](https://jsonplaceholder.typicode.com/users/1)
+
+```tsx showLineNumbers title="RecoilFetch.tsx"
+const RecoilFetch = () => {
+  return <div>Fetch using recoil</div>;
+};
+
+export default RecoilFetch;
 ```
