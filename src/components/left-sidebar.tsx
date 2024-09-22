@@ -48,7 +48,7 @@ const LeftSidebar = () => {
                       variant={
                         currentPath.startsWith(content.url)
                           ? "default"
-                          : "secondary"
+                          : "ghost"
                       }
                       size="icon"
                       className="rounded-lg group"

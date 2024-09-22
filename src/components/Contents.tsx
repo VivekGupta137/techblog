@@ -3,33 +3,10 @@ import Link from "next/link";
 import { ScrollArea } from "./ui/scroll-area";
 import { usePathname } from "next/navigation";
 import { cx } from "class-variance-authority";
+import { contentsData } from "@/constants/contents";
+import { cn } from "@/lib/utils";
 
 const Contents = () => {
-  const currentPath = usePathname();
-
-  const docs = [
-    {
-      title: "State Management",
-      child: [
-        {
-          title: "Context API",
-          url: "/react/state-management/context",
-        },
-        {
-          title: "Redux",
-          url: "/react/state-management/redux",
-        },
-        {
-          title: "Zustand",
-          url: "/react/state-management/zustand",
-        },
-        {
-          title: "Recoil",
-          url: "/react/state-management/recoil",
-        },
-      ],
-    },
-  ];
   const pathName = usePathname();
 
   return (
@@ -39,26 +16,54 @@ const Contents = () => {
           <h4 className="mb-4 text-sm font-medium leading-none font-gt-bold">
             Contents
           </h4>
-          {docs.map((doc) => (
-            <div key={doc.title} className="mb-4">
-              <div className="text-sm font-medium ">{doc.title}</div>
-              <div className="ml-2 mt-2 border-l">
-                {doc.child.map((child) => (
-                  <div
-                    key={child.title}
-                    className={cx(
-                      "pl-4 py-1 text-sm text-muted-foreground hover:underline font-gt-reg",
-                      pathName === child.url
-                        ? "border-primary border-l-4 text-primary"
-                        : ""
-                    )}
-                  >
-                    <Link href={child.url}>{child.title}</Link>
-                  </div>
-                ))}
+
+          {contentsData.map((content) => {
+            const isActive = pathName.startsWith(content.url);
+            const isEnabled = content.children.length > 0;
+            if (!isEnabled) return null;
+            return (
+              <div key={content.title} className="mb-2">
+                <div className="flex items-center gap-2">
+                  <div className={cn("font-bold", isActive?"text-primary": "text-muted-foreground")}>{content.title}</div>
+                  {!isActive && (
+                    <div className="cursor-pointer hover:underline text-muted-foreground hover:text-primary">
+                      <Link href={content.url}>[+]</Link>
+                    </div>
+                  )}
+                </div>
+                {content.children.map((child) => {
+                  const childIsActive = pathName.startsWith(child.url);
+                  return (
+                    <div key={child.title} className="pl-2 my-2">
+                      <div className="flex items-center gap-2">
+                        <div className={cn("text-sm font-medium", childIsActive? "text-primary": "text-muted-foreground")}>{child.title}</div>
+                        {!childIsActive && (
+                          <div className="cursor-pointer hover:underline text-muted-foreground hover:text-primary">
+                            <Link href={content.url}>[+]</Link>
+                          </div>
+                        )}
+                      </div>
+                      {childIsActive && <div className="ml-2 mt-2 border-l mb-5">
+                        {child.child.map((child) => (
+                          <div
+                            key={child.title}
+                            className={cx(
+                              "pl-4 py-1 text-sm text-muted-foreground font-gt-reg",
+                              pathName === child.url
+                                ? "border-primary border-l-4 text-primary"
+                                : ""
+                            )}
+                          >
+                            <Link href={child.url} className="hover:underline ">{child.title}</Link>
+                          </div>
+                        ))}
+                      </div>}
+                    </div>
+                  );
+                })}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </ScrollArea>
     </div>

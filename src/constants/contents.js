@@ -48,7 +48,7 @@ export const contentsData = [
     children: [],
   },
   {
-    title: "Competitive programming",
+    title: "Coding",
     url: "/cp",
     icon: <SiLeetcode className="size-7 text-orange-500 " />,
     children: [],
