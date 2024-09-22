@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { cx } from "class-variance-authority";
 
 const Contents = () => {
+  const currentPath = usePathname();
+
   const docs = [
     {
       title: "State Management",
@@ -34,7 +36,9 @@ const Contents = () => {
     <div className="pl-6">
       <ScrollArea className="w-full h-[calc(100vh-53px)] rounded-md">
         <div className="py-6">
-          <h4 className="mb-4 text-sm font-medium leading-none font-gt-bold">Contents</h4>
+          <h4 className="mb-4 text-sm font-medium leading-none font-gt-bold">
+            Contents
+          </h4>
           {docs.map((doc) => (
             <div key={doc.title} className="mb-4">
               <div className="text-sm font-medium ">{doc.title}</div>

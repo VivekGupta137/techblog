@@ -21,6 +21,14 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(main)/react/(contents)/(container)/state-management/context/page.mdx", "src/app/(main)/about/page.mdx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/(main)/react/(contents)/(container)/state-management/context/page.mdx",
+    "src/app/(main)/about/page.mdx",
+    "src/constants/contents.js"
+  ],
   "exclude": ["node_modules"]
 }

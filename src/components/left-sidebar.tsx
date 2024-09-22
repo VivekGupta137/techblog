@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "./ui/button";
 import { Triangle } from "lucide-react";
 import {
@@ -9,8 +10,13 @@ import {
 import MobileContents from "./MobileContents";
 import { SiGithub, SiLinkedin, SiReact } from "react-icons/si";
 import Link from "next/link";
+import { contentsData } from "@/constants/contents";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const LeftSidebar = () => {
+  const currentPath = usePathname();
+
   return (
     <TooltipProvider>
       <div className="fixed border-r inset-y h-full flex flex-col z-[1]">
@@ -31,25 +37,35 @@ const LeftSidebar = () => {
           </Link>
         </div>
 
-        <div className="p-2">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link href="/react">
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="rounded-lg group"
-                  aria-label="React"
-                >
-                  <SiReact className="size-7 text-blue-500 group-hover:animate-[spin_5s_linear_infinite]" />
-                </Button>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent side="right" sideOffset={5}>
-              React
-            </TooltipContent>
-          </Tooltip>
-        </div>
+        {contentsData.map((content) => {
+          const disabled = content.children?.length === 0;
+          return (
+            <div key={content.title} className="p-2">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link href={disabled ? "#" : content.children[0].url}>
+                    <Button
+                      variant={
+                        currentPath.startsWith(content.url)
+                          ? "default"
+                          : "secondary"
+                      }
+                      size="icon"
+                      className="rounded-lg group"
+                      aria-label={content.title}
+                      disabled={disabled}
+                    >
+                      {content.icon}
+                    </Button>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side="right" sideOffset={5}>
+                  {content.title + (disabled ? " (Coming soon)" : "")}
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          );
+        })}
 
         <div className="mt-auto">
           <div className="m-2">
