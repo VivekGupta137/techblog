@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { JetBrains_Mono } from 'next/font/google'
+import Script from 'next/script'
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -62,6 +64,7 @@ export default function RootLayout({
         </ThemeProvider>
         <SpeedInsights />
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
     </html>
   );
 }
