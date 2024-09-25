@@ -6,8 +6,8 @@ import rehypeSlug from 'rehype-slug';
 
 const options = {
   theme: {
-    dark: "one-dark-pro",
-    light: "one-light",
+    dark: "github-dark-dimmed",
+    light: "github-light-default",
   },
   keepBackground: false,
   

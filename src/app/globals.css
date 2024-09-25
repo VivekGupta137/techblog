@@ -76,10 +76,14 @@
     font-family: var(--font-gt-regular);
     letter-spacing: -.012em;
   }
+  .font-jb-mono {
+    font-family: var(--font-jetbrains-mono);
+  }
 }
 
 code[data-line-numbers] {
   counter-reset: line;
+  font-family: var(--font-jetbrains-mono) ;
 }
  
 code[data-line-numbers] > [data-line]::before {
@@ -109,18 +113,35 @@ code[data-line-numbers-max-digits="4"] > [data-line]::before {
 figure[data-rehype-pretty-code-figure] {
   border: 1px solid hsl(var(--border));
   padding: 8px;
-  border-radius: var(--radius);
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   width: 100% !important;
+  border-radius: var(--radius);
 }
+
+html.dark figure[data-rehype-pretty-code-figure] {
+  background-color: #212121;
+}
+
+html.dark code {
+  background-color: #212121;
+  padding: 2px 4px;
+  border-radius: var(--radius);
+}
+html.light code {
+  background-color: #E5E7EB;
+  padding: 2px 4px;
+  border-radius: var(--radius);
+}
+
 
 figure[data-rehype-pretty-code-figure] pre{
   overflow-x: auto;
 }
 figure[data-rehype-pretty-code-figure] code{
   overflow-x: auto;
+  font-size: 14px;
 }
 
 figcaption[data-rehype-pretty-code-title] {

@@ -27,13 +27,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     a: ({ children, href }) => (
       <Link
-        className="text-primary hover:underline dark:text-muted-foreground"
+        className="text-primary underline dark:text-muted-foreground dark:hover:bg-[#212121] hover:bg-gray-200 px-1 rounded-sm transition-all duration-300"
         href={href as string}
       >
         {children}
       </Link>
     ),
-
     ul: ({ children }) => <ul className="list-disc ml-6 dark:text-muted-foreground font-gt-reg">{children}</ul>,
     strong: ({ children }) => <strong className="font-gt-bold">{children}</strong>,
     ...components,

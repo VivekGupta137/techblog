@@ -6,30 +6,30 @@ import { SiSpring } from "react-icons/si";
 export const contentsData = [
   {
     title: "React",
-    url: "/react",
+    url: "/blog/react",
     icon: (
       <SiReact className="size-7 text-blue-500 group-hover:animate-[spin_5s_linear_infinite]" />
     ),
     children: [
       {
         title: "State Management",
-        url: "/react/state-management",
+        url: "/blog/react/state-management",
         child: [
           {
             title: "Context API",
-            url: "/react/state-management/context",
+            url: "/blog/react/state-management/context",
           },
           {
             title: "Redux",
-            url: "/react/state-management/redux",
+            url: "/blog/react/state-management/redux",
           },
           {
             title: "Zustand",
-            url: "/react/state-management/zustand",
+            url: "/blog/react/state-management/zustand",
           },
           {
             title: "Recoil",
-            url: "/react/state-management/recoil",
+            url: "/blog/react/state-management/recoil",
           },
         ],
       },

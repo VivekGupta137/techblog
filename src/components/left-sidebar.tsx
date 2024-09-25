@@ -8,11 +8,10 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import MobileContents from "./MobileContents";
-import { SiGithub, SiLinkedin, SiReact } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import Link from "next/link";
 import { contentsData } from "@/constants/contents";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
 
 const LeftSidebar = () => {
   const currentPath = usePathname();

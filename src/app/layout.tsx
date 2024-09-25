@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
+import { JetBrains_Mono } from 'next/font/google'
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -28,6 +28,14 @@ const gtwalsheimboldpro = localFont({
   weight: "100 900",
 });
 
+const jetbrainsmono = JetBrains_Mono({
+  weight: '300',
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+})
+;
+
+
 export const metadata: Metadata = {
   title: "Vivek's blog",
   description:
@@ -42,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${gtwalsheimpro.variable} ${gtwalsheimboldpro.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${gtwalsheimpro.variable} ${gtwalsheimboldpro.variable} ${jetbrainsmono.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
