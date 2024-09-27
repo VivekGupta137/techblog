@@ -25,13 +25,13 @@ const LeftSidebar = () => {
         <div className="border-b p-2 hidden md:block">
           <Link href={"/about"}>
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               aria-label="Home"
               className="group"
             >
-              <Triangle className="size-5 fill-foreground rotate-180 group-hover:hidden" />
-              <div className="hidden group-hover:block">VG</div>
+              {/* <Triangle className="size-5 fill-foreground rotate-180 group-hover:hidden" /> */}
+              <div className="size-5 group-hover:block font-bungee-reg text-[20px]">V.</div>
             </Button>
           </Link>
         </div>
@@ -112,10 +112,10 @@ const LeftSidebar = () => {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="mt-auto rounded-lg"
+                    className="mt-auto rounded-lg font-bungee-reg text-[20px]"
                     aria-label="Account"
                   >
-                    VG
+                    V.
                   </Button>
                 </Link>
               </TooltipTrigger>

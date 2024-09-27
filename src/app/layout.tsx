@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { JetBrains_Mono } from 'next/font/google'
+import { Bungee_Inline } from 'next/font/google'
+
 import Script from 'next/script'
 
 const geistSans = localFont({
@@ -33,8 +35,14 @@ const gtwalsheimboldpro = localFont({
 const jetbrainsmono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains-mono',
-})
-;
+});
+
+const bungeeinline = Bungee_Inline({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bungee-reg',
+});
+
 
 
 export const metadata: Metadata = {
@@ -51,7 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${gtwalsheimpro.variable} ${gtwalsheimboldpro.variable} ${jetbrainsmono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${gtwalsheimpro.variable} ${gtwalsheimboldpro.variable} ${jetbrainsmono.variable} ${bungeeinline.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

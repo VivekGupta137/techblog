@@ -60,7 +60,7 @@ const MiniSkills = () => {
   ];
 
   return (
-    <div className="flex flex-wrap gap-2 mt-10 justify-center">
+    <div className="flex flex-wrap gap-2 justify-center">
       {/* skills */}
       {skills.map((skill) => (
         <Popover key={skill.title}>

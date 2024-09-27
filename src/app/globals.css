@@ -79,6 +79,9 @@
   .font-jb-mono {
     font-family: var(--font-jetbrains-mono);
   }
+  .font-bungee-reg {
+    font-family: var(--font-bungee-reg);
+  }
 }
 
 code[data-line-numbers] {

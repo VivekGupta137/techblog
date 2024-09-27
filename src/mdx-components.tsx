@@ -14,6 +14,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h2>
     ),
+    h4: ({ children }) => (
+      <h4 className="mb-2 mt-4" id={(children as string).toLocaleLowerCase()}>
+        <span className="pt-1 text-sm border-t-2 border-[hsl(var(--primary))] font-[500]">
+          {children}
+        </span>
+      </h4>
+    ),
     img: (props) => (
       <Image
         sizes="100vw"

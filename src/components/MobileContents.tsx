@@ -20,7 +20,8 @@ const MobileContents = () => {
               href="/about"
               className="flex items-center gap-2 text-lg font-semibold"
             >
-              <Triangle className="h-6 w-6 fill-foreground rotate-180" />
+              {/* <Triangle className="h-6 w-6 fill-foreground rotate-180" /> */}
+              <div className="size-5 font-bungee-reg text-[20px]">V.</div>
               <span className="sr-only">Vivek&apos;s blog</span>
             </Link>
             <Contents />
