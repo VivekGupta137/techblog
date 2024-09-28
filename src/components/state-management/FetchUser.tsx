@@ -6,7 +6,6 @@ import {
   ArrowRight,
   CheckCheckIcon,
   Link,
-  Link2,
   TriangleAlert,
 } from "lucide-react";
 import NextLink from "next/link";
