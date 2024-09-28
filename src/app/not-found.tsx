@@ -14,7 +14,7 @@ const NotFound = () => {
           <h1 className="font-gt-bold">Oops! Page not found.</h1>
         </div>
         <p className="font-gt-reg text-muted-foreground mt-5 px-2">
-          The page you're looking for doesn't exist or has been moved.
+          The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         <Link href="/" passHref legacyBehavior>
           <Button className="mt-4 z-10">Go back home</Button>
