@@ -23,7 +23,7 @@ const LeftSidebar = () => {
           <MobileContents />
         </div>
         <div className="border-b p-2 hidden md:block">
-          <Link href={URL_MAP['about']}>
+          <Link href={URL_MAP["about"]}>
             <Button
               variant="ghost"
               size="icon"
@@ -31,7 +31,9 @@ const LeftSidebar = () => {
               className="group"
             >
               {/* <Triangle className="size-5 fill-foreground rotate-180 group-hover:hidden" /> */}
-              <div className="size-5 group-hover:block font-bungee-reg text-[20px]">V.</div>
+              <div className="size-5 group-hover:block font-bungee-reg text-[20px]">
+                V.
+              </div>
             </Button>
           </Link>
         </div>
@@ -47,7 +49,9 @@ const LeftSidebar = () => {
                       variant={
                         currentPath.startsWith(content.url)
                           ? "default"
-                          : "ghost"
+                          : disabled
+                          ? "ghost"
+                          : "secondary"
                       }
                       size="icon"
                       className="rounded-lg group"
