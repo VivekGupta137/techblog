@@ -38,21 +38,21 @@ const MyHistory = () => {
       {history.map((item) => (
         <li key={item.place} className="mt-2 mb-4">
           <div className="flex">
-            <div className="basis-[100px] sm:basis-[100px]">
+            <div className="basis-[100px]">
               <span>
                 {item.start} -- {item.end}
               </span>
             </div>
-            <div>
+            <div className="basis-[200px] min-[400px]:basis-[300px]">
               <div className="flex gap-2 items-center">
                 <span>
                   <FaSquare className={`size-2 ${item.color}`} />
                 </span>
                 <p>{item.place}</p>
               </div>
-              <p className="text-muted-foreground font-jb-mono">{item.title}</p>
+              <p className="text-muted-foreground font-jb-mono break-words">{item.title}</p>
                 {item.description && (
-                    <p className="text-muted-foreground font-jb-mono text-sm">({item.description})</p>
+                    <p className="text-muted-foreground font-jb-mono text-sm break-words">({item.description})</p>
                 )}
             </div>
           </div>
