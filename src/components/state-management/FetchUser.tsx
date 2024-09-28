@@ -5,9 +5,11 @@ import {
   ArrowLeft,
   ArrowRight,
   CheckCheckIcon,
+  Link,
+  Link2,
   TriangleAlert,
 } from "lucide-react";
-import Link from "next/link";
+import NextLink from "next/link";
 
 interface FetchUserProps {
   getNextUser: () => void;
@@ -44,7 +46,7 @@ const FetchUser = ({
           <h3 className="font-semibold text-lg text-primary my-2 ml-2">
             User Information
           </h3>
-          <pre className="ml-2 font-jb-mono">
+          <pre className="ml-2 font-jb-mono overflow-auto">
             {JSON.stringify(mappedUser, null, 4)}
           </pre>
         </div>
@@ -65,15 +67,15 @@ const FetchUser = ({
             <ArrowRight className="size-5 ml-2" />
           </Button>
         </div>
-        <div className="break-all flex gap-2 mt-2 ml-2">
-          <b>API:</b>
-          <Link
+        <div className="break-all flex gap-2 mt-2 ml-2 items-center">
+          <Link className="size-4" />
+          <NextLink
             href={url}
             target="_blank"
             className="text-muted-foreground hover:underline"
           >
             {url}
-          </Link>
+          </NextLink>
         </div>
       </div>
 
