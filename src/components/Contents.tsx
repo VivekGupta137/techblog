@@ -39,7 +39,7 @@ const Contents = () => {
                         <div className={cn("text-sm font-medium", childIsActive? "text-primary": "text-muted-foreground")}>{child.title}</div>
                         {!childIsActive && (
                           <div className="cursor-pointer hover:underline text-muted-foreground hover:text-primary">
-                            <Link href={content.url}>[+]</Link>
+                            <Link href={child.url}>[+]</Link>
                           </div>
                         )}
                       </div>

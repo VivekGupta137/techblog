@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import Link from "next/link";
 import Contents from "./Contents";
+import { URL_MAP } from "@/constants/urlmap";
 
 const MobileContents = () => {
   return (
@@ -17,7 +18,7 @@ const MobileContents = () => {
         <SheetContent side="left">
           <nav className="grid gap-6 text-lg font-medium">
             <Link
-              href="/about"
+              href={URL_MAP['about']}
               className="flex items-center gap-2 text-lg font-semibold"
             >
               {/* <Triangle className="h-6 w-6 fill-foreground rotate-180" /> */}

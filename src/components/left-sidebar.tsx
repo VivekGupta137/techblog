@@ -11,6 +11,7 @@ import { SiGithub, SiLinkedin } from "react-icons/si";
 import Link from "next/link";
 import { contentsData } from "@/constants/contents";
 import { usePathname } from "next/navigation";
+import { URL_MAP } from "@/constants/urlmap";
 
 const LeftSidebar = () => {
   const currentPath = usePathname();
@@ -22,7 +23,7 @@ const LeftSidebar = () => {
           <MobileContents />
         </div>
         <div className="border-b p-2 hidden md:block">
-          <Link href={"/about"}>
+          <Link href={URL_MAP['about']}>
             <Button
               variant="ghost"
               size="icon"
@@ -107,7 +108,7 @@ const LeftSidebar = () => {
           <div className="m-2">
             <Tooltip>
               <TooltipTrigger asChild>
-                <Link href="/about">
+                <Link href={URL_MAP["about"]}>
                   <Button
                     variant="outline"
                     size="icon"

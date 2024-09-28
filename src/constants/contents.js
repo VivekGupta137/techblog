@@ -14,6 +14,7 @@ export const contentsData = [
       {
         title: "State Management",
         url: "/blog/react/state-management",
+        description: "State Management in React using Context, Redux, Zustand, Recoil, Jotai",
         child: [
           {
             title: "Context API",
@@ -45,19 +46,19 @@ export const contentsData = [
   },
   {
     title: "Spring",
-    url: "/spring",
+    url: "/blog/spring",
     icon: <SiSpring className="size-7 text-green-500 " />,
     children: [],
   },
   {
     title: "System Design",
-    url: "/system-design",
+    url: "/blog/system-design",
     icon: <MdArchitecture className="size-7  " />,
     children: [],
   },
   {
     title: "Coding",
-    url: "/cp",
+    url: "/blog/cp",
     icon: <SiLeetcode className="size-7 text-orange-500 " />,
     children: [],
   },

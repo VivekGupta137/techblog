@@ -27,8 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/(main)/blog/(contents)/(container)/react/state-management/context/page.mdx",
-    "src/app/(main)/about/page.mdx",
-    "src/constants/contents.js"
-  ],
+    "src/app/(main)/page.mdx",
+    "src/constants/contents.ts"
+, "src/app/(main)/blog/(contents)/(container)/react/page.mdx", "src/app/(main)/blog/(contents)/(container)/react/state-management/conclusion/page.mdx", "src/app/(main)/blog/(contents)/(container)/react/state-management/jotai/page.msx"  ],
   "exclude": ["node_modules"]
 }
