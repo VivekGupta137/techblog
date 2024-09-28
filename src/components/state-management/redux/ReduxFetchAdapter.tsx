@@ -1,11 +1,17 @@
-"use client"
+"use client";
 
 import { useDispatch } from "react-redux";
 import FetchUser from "../FetchUser";
 import { useSelector } from "react-redux";
 
 import { useEffect } from "react";
-import { AppDispatch, decrementUserId, fetchUser, incrementUserId, RootState } from "./ReduxFetchMain";
+import {
+  AppDispatch,
+  decrementUserId,
+  fetchUser,
+  incrementUserId,
+  RootState,
+} from "./ReduxFetchMain";
 
 const ReduxFetchAdapter = () => {
   const dispatch: AppDispatch = useDispatch();

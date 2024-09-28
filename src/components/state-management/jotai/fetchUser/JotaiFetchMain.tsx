@@ -16,23 +16,23 @@ const errorAtom = atom<string | null>(null);
 const userAtom = atom<User | null>(null);
 
 const updateUserAtom = atom(null, async (get, set) => {
-    const userId = get(userIdAtom);
-    set(statusAtom, "loading");
-    try {
-        const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${userId}`
-        );
-        if (!response.ok) {
-        throw new Error("Failed to fetch user");
-        }
-        const data: User = await response.json();
-        set(userAtom, data);
-        set(statusAtom, "succeeded");
-    } catch (error) {
-        set(errorAtom, (error as Error).message);
-        set(statusAtom, "failed");
+  const userId = get(userIdAtom);
+  set(statusAtom, "loading");
+  try {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch user");
     }
-})
+    const data: User = await response.json();
+    set(userAtom, data);
+    set(statusAtom, "succeeded");
+  } catch (error) {
+    set(errorAtom, (error as Error).message);
+    set(statusAtom, "failed");
+  }
+});
 
 const JotaiFetchMain = () => {
   const [userId, setUserId] = useAtom(userIdAtom);

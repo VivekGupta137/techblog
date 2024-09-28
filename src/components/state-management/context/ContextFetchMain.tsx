@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import ContextFetch from "./ContextFetch";
 
 interface User {
-    id: number;
-    name: string;
-    email: string;
-    phone: string;
-  }
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+}
 
 interface UserState {
   userId: number;
@@ -15,7 +15,6 @@ interface UserState {
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
-
 
 type UserAction =
   | { type: "SET_USER_ID"; payload: number }

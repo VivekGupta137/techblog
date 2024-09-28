@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";

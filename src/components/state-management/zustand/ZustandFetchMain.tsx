@@ -30,7 +30,7 @@ export const useUserStore = create<UserState>((set, get) => ({
 
     try {
       const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${userId}`,
+        `https://jsonplaceholder.typicode.com/users/${userId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch user");
