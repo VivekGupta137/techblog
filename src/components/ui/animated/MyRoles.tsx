@@ -15,6 +15,7 @@ const MyRoles = () => {
     const counter = setInterval(() => {
       setShowIdx((cur) => (cur + 1) % roles.length);
     }, 2000);
+    
     return () => {
       clearInterval(counter);
     };

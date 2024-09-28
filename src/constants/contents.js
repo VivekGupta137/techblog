@@ -31,6 +31,14 @@ export const contentsData = [
             title: "Recoil",
             url: "/blog/react/state-management/recoil",
           },
+          {
+            title: "Jotai",
+            url: "/blog/react/state-management/jotai",
+          },
+          {
+            title: "Conclusion",
+            url: "/blog/react/state-management/conclusion",
+          },
         ],
       },
     ],

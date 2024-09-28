@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRef } from "react";
 
 const variants = {
   from: {

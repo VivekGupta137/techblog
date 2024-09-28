@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "./ui/button";
-import { Triangle } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,

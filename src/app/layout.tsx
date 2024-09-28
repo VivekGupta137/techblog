@@ -67,8 +67,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="selection:bg-primary selection:text-secondary">
           {children}
           <Toaster />
+          </div>
         </ThemeProvider>
         <SpeedInsights />
       </body>

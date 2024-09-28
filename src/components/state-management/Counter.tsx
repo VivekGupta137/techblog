@@ -28,7 +28,7 @@ const Counter = ({ count, increment, decrement }: CounterProps) => {
             </div>
             <div
               className={cn(
-                "text-8xl text-primary font-bold",
+                "text-8xl text-primary font-bold font-jb-mono",
                 count < 0 ? `text-red-500` : "",
                 count > 0 ? `text-green-500` : ""
               )}

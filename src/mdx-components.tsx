@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/ui/table";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -42,6 +43,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     ul: ({ children }) => <ul className="list-disc ml-6 dark:text-muted-foreground font-gt-reg">{children}</ul>,
     strong: ({ children }) => <strong className="font-gt-bold">{children}</strong>,
+    table: ({ children }) => <Table className="w-full rounded-md">{children}</Table>,
+    thead: ({ children }) => <TableHeader>{children}</TableHeader>,
+    tbody: ({ children }) => <TableBody>{children}</TableBody>,
+    th: ({ children }) => <TableHead>{children}</TableHead>,
+    tr: ({ children }) => <TableRow>{children}</TableRow>,
+    td: ({ children }) => <TableCell>{children}</TableCell>,
     ...components,
   };
 }
