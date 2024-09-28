@@ -1,12 +1,12 @@
 # Conclusion
 
 ## Result
-Winner: Jotai
+Winner: Zustand
 
-Jotai >= Zustand > Redux > Recoil > Context API
+Zustand >= Jotai > Redux > Recoil > Context API
 
 
-## Learning Curve
+## My learning curve exoerience
 Winner: Context API
 
 Context API > Zustand > Jotai > Recoil > Redux
@@ -16,15 +16,15 @@ Zustand and Jotai are also easy to learn because they have a minimal API, if one
 Recoil and Redux have a steeper learning curve because they have more concepts to understand.
 
 
-## Developer Experience
+## My developer experience
 Winner: Jotai
 
 Jotai > Zustand > Recoil > Redux > Context API
 
-Jotai and Zustand have a great developer experience because they are lightweight and have a minimal API. 
-Recoil is also good because it has built-in tools for asynchronous state management. 
-Redux has a good developer experience, but it has more boilerplate code compared to the other libraries. 
-Context API has the lowest developer experience because it requires more boilerplate code.
+Jotai and Zustand offer a great developer experience because they're lightweight, easy to use, and have clear documentation. 
+Recoil is also good, as it requires less boilerplate code than Redux, though its documentation can be overwhelming, even for simple concepts. 
+Redux, while popular with a large community, has more boilerplate compared to these libraries, but finding solutions is easier. 
+The Context API offers the least developer-friendly experience due to the extra boilerplate it requires.
 
 ## Mantainability
 Winner: Jotai
@@ -34,4 +34,12 @@ Jotai > Zustand > Redux > Context API > Recoil
 Jotai and Zustand are easy to maintain because they have a minimal API. 
 Redux is also good because it has a clear separation of concerns. 
 Context API is harder to maintain because it requires more boilerplate code. 
-Recoil library is not actively maintained making it harder to maintain.
+Recoil library is not actively maintained making it hard to maintain for future.
+
+## Jotai vs Zustand
+
+Just a few thoughts on why I prefer Zustand over Jotai.
+
+* If you need state to be accessible outside of React, zustand works better, it nativly keeps the state outside of react state. If you have a background job that needs to access this state I would recommend zustand.
+* Jotai uses suspense for async state. While this allows for greater DX it can result in hard to debug issues. I had some weird hard to debug bugs with Fetch app that got caused by this. While it is fixable. Having 1 place in time where you hydrate all the states is easier to reason about.
+* Jotai has a lower learning curve, nicer syntax, and feels like it just works.
