@@ -3,16 +3,26 @@ import MyCodeBlock from "@/components/MyCodeBlock";
 import BadgeLink from "@/components/BadgeLink";
 import ReduxExample from "@/components/state-management/redux/ReduxExample";
 import ReduxFetchMain from "@/components/state-management/redux/ReduxFetchMain";
+import Pluspoints from "@/components/Pluspoints";
 
 
 # Redux
 A predictable state container for JavaScript apps, Redux is one of the most popular state management libraries for React.
 
+<Pluspoints type={"pros"}>
+  <p>Most widely used state mangagement library, easier to find solutions.</p>
+  <p>Great for managing global state in large-scale applications.</p>
+  <p>Offers strict structure and patterns, which can be helpful for maintaining large codebases.</p>
+</Pluspoints>
+<Pluspoints type={"cons"}>
+  <p>Can feel overly complex for small apps, with a lot of boilerplate code.</p>
+</Pluspoints>
+
 <div className="mt-4">
   <BadgeLink href="https://redux.js.org/" label="Docs" />
 </div>
 
-## Demo
+## Demo \#1 (Counter App)
 Following is a simple counter app using Redux.
 
 <ReduxExample />
@@ -93,8 +103,8 @@ const CounterRedux = () => {
 export default CounterRedux;
 ```
 
-## Demo #2
-Following is a simple app to fetch user data via redux.
+## Demo \#2 (Fetching user data)
+Following is a simple app to fetch user data using redux.
 
 <ReduxFetchMain />
 

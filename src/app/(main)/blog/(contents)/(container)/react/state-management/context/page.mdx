@@ -1,19 +1,26 @@
 import BadgeLink from "@/components/BadgeLink";
 import ContextExample from "@/components/state-management/context/ContextExample";
 import ContextFetchMain from "@/components/state-management/context/ContextFetchMain";
-
+import Pluspoints from "@/components/Pluspoints";
 
 # Context with useReducer
 The Context API is used to pass data through the component tree, and useReducer is a hook that is used for state management.
 
+<Pluspoints type={"pros"}>
+  <p>Built into React, so no need to install external libraries.</p>
+  <p>Easy to understand for beginners, as it integrates directly with React.</p>
+</Pluspoints>
+<Pluspoints type={"cons"}>
+  <p>Lots of boilerplate required if want to simulate the other libraries are doing.</p>
+</Pluspoints>
 
 <div className="mt-4">
   <BadgeLink href="https://react.dev/" label="Docs" />
 </div>
 
 
+## Demo \#1 (Counter App)
 
-## Demo
 Following is a simple counter app using Context API with useReducer.
 <ContextExample />
 
@@ -94,8 +101,8 @@ const CounterExample = () => {
 export default CounterExample;
 ```
 
-## Demo #2
-Following is a simple app to fetch user data via Context API with useReducer.
+## Demo \#2 (Fetching user data)
+Following is a simple app to fetch user data using Context API with useReducer.
 
 <ContextFetchMain />
 

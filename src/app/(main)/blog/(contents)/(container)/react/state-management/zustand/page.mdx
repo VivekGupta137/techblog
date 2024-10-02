@@ -1,15 +1,25 @@
 import BadgeLink from "@/components/BadgeLink";
 import ZustandExample from "@/components/state-management/zustand/ZustandExample";
 import ZustandFetchAdapter from "@/components/state-management/zustand/ZustandFetchAdapter";
+import Pluspoints from "@/components/Pluspoints";
 
 # Zustand
 Simpler and easier to get started with. It's more lightweight and intuitive for smaller applications or when you just need state without a lot of boilerplate.
+
+<Pluspoints type={"pros"}>
+  <p>Very lightweight and minimal, easy to set up and use.</p>
+  <p>Simple API but powerful enough to handle complex states.</p>
+</Pluspoints>
+<Pluspoints type={"cons"}>
+  <p>Lacks a built-in DevTools experience like Redux.</p>
+</Pluspoints>
+
 
 <div className="mt-4">
   <BadgeLink href="https://zustand-demo.pmnd.rs/" label="Docs" />
 </div>
 
-## Demo
+## Demo \#1 (Counter App)
 Following is a simple counter app using zustand.
 <ZustandExample />
 
@@ -50,8 +60,8 @@ const ZustandExample = () => {
 
 ```
 
-## Demo #2
-Following is a simple app to fetch user data via zustand.
+## Demo \#2 (Fetching user data)
+Following is a simple app to fetch user data using zustand.
 <ZustandFetchAdapter />
 
 ## Usage

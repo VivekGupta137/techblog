@@ -1,10 +1,18 @@
 import BadgeLink from "@/components/BadgeLink";
 import JotaiCounterMain from "@/components/state-management/jotai/counter/JotaiCounterMain";
 import JotaiFetchMain from "@/components/state-management/jotai/fetchUser/JotaiFetchMain";
+import Pluspoints from "@/components/Pluspoints";
 
 
 # Jotai
 [Jotai](https://jotai.org/) has a very minimal API, exposing only a few exports from the main jotai bundle. It's lightweight and developers can write business logic with less boilerplate code.
+
+
+<Pluspoints type={"pros"}>
+  <p>Atomic state management makes it easy to manage independent pieces of state.</p>
+  <p>Jotai's decentralized state management feels natural.</p>
+</Pluspoints>
+
 <div className="mt-4">
   <BadgeLink href="https://jotai.org/" label="Docs" />
 </div>
@@ -14,8 +22,11 @@ Following is a simple counter app using jotai.
 <JotaiCounterMain />
 
 ## Core concept
-Its core concept revolves around atoms and selectors.
+Its core concept revolves around atoms and derived atoms.
 * **Atoms**: Atoms represent the state of our application. They are the smallest unit of state in jotai.
+* **Derived atoms**: Derived atoms are used to calculate the state based on the atoms.
+
+In contrast to Recoil, Jotai doesn't have selectors. Instead, it uses the `useAtom` hook to read and write atoms.
 
 ## Installation
 First you will need to install the following library:
