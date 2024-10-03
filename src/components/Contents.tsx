@@ -6,7 +6,7 @@ import { contentsData } from "@/constants/contents";
 import { cn } from "@/lib/utils";
 import { SheetClose } from "./ui/sheet";
 
-const Contents = ({ isMobile = false }: {isMobile: boolean}) => {
+const Contents = ({ isMobile = false }: {isMobile?: boolean}) => {
   const pathName = usePathname();
   const getLink = (url: string, label: string) => {
     const link = <Link className="hover:underline" href={url}>{label}</Link>;
