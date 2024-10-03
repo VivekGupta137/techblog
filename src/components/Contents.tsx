@@ -2,13 +2,17 @@
 import Link from "next/link";
 import { ScrollArea } from "./ui/scroll-area";
 import { usePathname } from "next/navigation";
-import { cx } from "class-variance-authority";
 import { contentsData } from "@/constants/contents";
 import { cn } from "@/lib/utils";
+import { SheetClose } from "./ui/sheet";
 
-const Contents = () => {
+const Contents = ({ isMobile = false }: {isMobile: boolean}) => {
   const pathName = usePathname();
-
+  const getLink = (url: string, label: string) => {
+    const link = <Link className="hover:underline" href={url}>{label}</Link>;
+    if (isMobile) return <SheetClose asChild>{link}</SheetClose>;
+    return link;
+  }
   return (
     <div className="pl-6">
       <ScrollArea className="w-full h-[calc(100vh-53px)] rounded-md">
@@ -24,10 +28,17 @@ const Contents = () => {
             return (
               <div key={content.title} className="mb-2">
                 <div className="flex items-center gap-2">
-                  <div className={cn("font-bold", isActive?"text-primary": "text-muted-foreground")}>{content.title}</div>
+                  <div
+                    className={cn(
+                      "font-bold",
+                      isActive ? "text-primary" : "text-muted-foreground"
+                    )}
+                  >
+                    {content.title}
+                  </div>
                   {!isActive && (
                     <div className="cursor-pointer hover:underline text-muted-foreground hover:text-primary">
-                      <Link href={content.url}>[+]</Link>
+                      {getLink(content.url, "[+]")}
                     </div>
                   )}
                 </div>
@@ -36,28 +47,41 @@ const Contents = () => {
                   return (
                     <div key={child.title} className="pl-2 my-2">
                       <div className="flex items-center gap-2">
-                        <div className={cn("text-sm font-medium", childIsActive? "text-primary": "text-muted-foreground")}>{child.title}</div>
+                        <div
+                          className={cn(
+                            "text-sm font-medium",
+                            childIsActive
+                              ? "text-primary"
+                              : "text-muted-foreground"
+                          )}
+                        >
+                          {child.title}
+                        </div>
                         {!childIsActive && (
+                          
                           <div className="cursor-pointer hover:underline text-muted-foreground hover:text-primary">
-                            <Link href={child.url}>[+]</Link>
+                            {getLink(child.url, "[+]")}
                           </div>
                         )}
                       </div>
-                      {childIsActive && <div className="ml-2 mt-2 border-l mb-5">
-                        {child.child.map((child) => (
-                          <div
-                            key={child.title}
-                            className={cx(
-                              "pl-4 py-1 text-sm text-muted-foreground font-gt-reg",
-                              pathName === child.url
-                                ? "border-primary border-l-4 text-primary"
-                                : ""
-                            )}
-                          >
-                            <Link href={child.url} className="hover:underline ">{child.title}</Link>
-                          </div>
-                        ))}
-                      </div>}
+                      {childIsActive && (
+                        <div className="ml-2 mt-2 border-l mb-5">
+                          {child.child.map((child) => (
+                            <div
+                              key={child.title}
+                              className={cn(
+                                "pl-4 py-1 text-sm text-muted-foreground font-gt-reg",
+                                pathName === child.url
+                                  ? "border-primary border-l-4 text-primary"
+                                  : ""
+                              )}
+                            
+                            >
+                              {getLink(child.url, child.title)}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   );
                 })}

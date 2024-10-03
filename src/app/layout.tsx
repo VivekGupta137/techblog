@@ -34,6 +34,7 @@ const gtwalsheimboldpro = localFont({
 });
 
 const jetbrainsmono = JetBrains_Mono({
+  weight: '400',
   subsets: ['latin'],
   variable: '--font-jetbrains-mono',
 });
