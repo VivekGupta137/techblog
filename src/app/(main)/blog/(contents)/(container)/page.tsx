@@ -20,7 +20,7 @@ export default function Page() {
           const disabled = topics.children.length === 0;
           return (
             <div key={topics.title} className="grow group">
-              <Link href={topics.url}>
+              <Link href={disabled? "#": topics.url}>
                 <Card
                   className={cn(
                     "p-3 transition-all duration-200",
