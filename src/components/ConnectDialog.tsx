@@ -91,7 +91,7 @@ const ConnectDialog = () => {
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 font-gt-reg">
             <FormField
               control={form.control}
               name="email"
