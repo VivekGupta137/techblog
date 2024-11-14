@@ -48,7 +48,41 @@ export const contentsData = [
     title: "Spring",
     url: "/blog/spring",
     icon: <SiSpring className="size-7 text-green-500 " />,
-    children: [],
+    children: [{
+      title: "Spring Security",
+      url: "/blog/spring/spring-security",
+      description: "Helping people to learn Spring security in a simple way or maybe making notes for myself 😅",
+      child: [
+        {
+          title: "Is Spring Security is EZ ? 🤐",
+          url: "/blog/spring/spring-security/security-is-ez",
+        },
+        {
+          title: "Username and Password Authentication",
+          url: "#",
+        },
+        {
+          title: "JWT Authentication(Token Based)",
+          url: "#",
+        },
+        {
+          title: "OAuth2 Authentication",
+          url: "#",
+        },
+        {
+          title: "SAML Authentication",
+          url: "#"
+        },
+        {
+          title: "CORS and CSRF 🤬",
+          url: "#",
+        },
+        {
+          title: "Conclusion",
+          url: "#",
+        },
+      ],
+    },],
   },
   {
     title: "System Design",

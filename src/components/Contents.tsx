@@ -9,6 +9,9 @@ import { SheetClose } from "./ui/sheet";
 const Contents = ({ isMobile = false }: {isMobile?: boolean}) => {
   const pathName = usePathname();
   const getLink = (url: string, label: string) => {
+    if(url === "#") return <div className="italic cursor-not-allowed line-through">
+      {label} (Coming soon...)
+    </div>;
     const link = <Link className="hover:underline" href={url}>{label}</Link>;
     if (isMobile) return <SheetClose asChild>{link}</SheetClose>;
     return link;

@@ -1,0 +1,50 @@
+import BadgeLink from "@/components/BadgeLink";
+import ContextExample from "@/components/state-management/context/ContextExample";
+import ContextFetchMain from "@/components/state-management/context/ContextFetchMain";
+import Pluspoints from "@/components/Pluspoints";
+import FirstFlow from "@/components/spring-security/FirstFlow";
+
+# Security with Spring is really easy!
+
+[Spring Security](https://spring.io/projects/spring-security) helps developers to secure any application by providing us a nice framework for implementing robust security measures.
+
+I'll try my best to explain how Spring Security works and how you can use it to secure your application.
+
+
+<div className="mt-4">
+  <BadgeLink href="https://spring.io/projects/spring-security" label="Docs" />
+</div>
+
+#### Security is hard AF!
+Creating a secure application is hard. If you are not careful, you can easily introduce security vulnerabilities into your application. 
+Spring Security helps you to avoid these pitfalls by providing a framework for implementing security measures in your application.
+
+Security is something that any application serving content over the internet should take very seriously. 
+For example - if you are building a web application, you should be aware of the following security measures:
+* Authentication - verifying the identity of a user.
+* Authorization - determining what a user can and cannot do.
+* Data protection - ensuring that data is secure and cannot be tampered with.
+* Session management - managing user sessions securely.
+* Cross-site request forgery (CSRF) protection - preventing CSRF attacks.
+* Cross-site scripting (XSS) protection - preventing XSS attacks.
+* Clickjacking protection - preventing clickjacking attacks.
+* Security headers - setting security headers to protect against common security vulnerabilities.
+
+TBH - I have never implemented security from scratch. I always use Spring Security to secure my applications. It's easy to use and provides a lot of features out of the box.
+
+## Simplified Security Flow
+<FirstFlow />
+
+## Pros and Cons of Spring Security
+<Pluspoints type={"pros"}>
+  <p>Covers authentication, authorization, and protection against common vulnerabilities.</p>
+  <p>Supports custom authentication and authorization for unique requirements.</p>
+  <p>Suitable for both small projects and large-scale, microservices-based systems.</p>
+  <p>Enforces best practices out-of-the-box.</p>
+</Pluspoints>
+<Pluspoints type={"cons"}>
+  <p>Custom setups can be complicated and harder to maintain.</p>
+  <p>Configuration can be verbose and complex for beginners.</p>
+  <p>Misconfiguration can lead to vulnerabilities if not carefully handled.</p>
+</Pluspoints>
+
