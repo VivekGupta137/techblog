@@ -3,6 +3,7 @@ import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/ui/table";
 import { GoArrowUpRight } from "react-icons/go";
+import FirstFlow from "./components/spring-security/FirstFlow";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -58,6 +59,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     th: ({ children }) => <TableHead>{children}</TableHead>,
     tr: ({ children }) => <TableRow>{children}</TableRow>,
     td: ({ children }) => <TableCell>{children}</TableCell>,
+    FFLOW: ({ children }) => <FirstFlow />,
     ...components,
   };
 }

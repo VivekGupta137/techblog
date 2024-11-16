@@ -2,7 +2,6 @@ import BadgeLink from "@/components/BadgeLink";
 import ContextExample from "@/components/state-management/context/ContextExample";
 import ContextFetchMain from "@/components/state-management/context/ContextFetchMain";
 import Pluspoints from "@/components/Pluspoints";
-import FirstFlow from "@/components/spring-security/FirstFlow";
 
 # Security with Spring is really easy!
 
@@ -32,8 +31,39 @@ For example - if you are building a web application, you should be aware of the 
 
 TBH - I have never implemented security from scratch. I always use Spring Security to secure my applications. It's easy to use and provides a lot of features out of the box.
 
+
 ## Simplified Security Flow
-<FirstFlow />
+<FFLOW />
+
+## Core Concept
+Spring Security acts as a gatekeeper between the client and the business logic.
+
+### Client Request
+When a client makes an `HTTP request` to our Tomcat web server running a Spring Boot application, the `HTTP request` is converted to a Java object called `HttpServletRequest` by the web server and sent to the Spring application.
+
+### Security Filters
+Before the `HTTP request` reaches our controller, it is first intercepted by `Security Filters` to perform authentication and authorization logic. The first task of security filters is to convert the credentials received from the `HttpServletRequest` into an `Authentication` object. This object contains fields such as username, password, and isAuthenticated (initially set to false). The username and password are extracted from the `HttpServletRequest`. Once the `Authentication` object is created, it is used throughout the authentication flow.
+
+There are various security filters, each responsible for a specific aspect of security. For example, one filter checks whether the user is authenticated, another redirects unauthenticated users to the login page, and another handles authorization logic.
+
+### Authentication Manager
+After the `Authentication` object is created, the security filters send it to the `Authentication Manager`, which is responsible for completing the authentication process and returning the response (success or failure) back to the filters.
+
+### Authentication Providers
+The `Authentication Manager` itself does not contain the logic to authenticate but delegates this task to `Authentication Providers`, which contain the actual authentication logic.
+
+There can be multiple authentication providers, and the authentication manager will check with each provider to determine whether the authentication is successful or failed using a simple loop.
+
+`Authentication Providers` use a User Details Service to load the `userDetails` (username, password, user roles) for the given username from the database.
+
+Finally, the `Authentication Provider` uses a `Password Encoder` to compare the password in the `userDetails` object with the password in the `Authentication` object.
+
+If the comparison is successful, the `isAuthenticated` field of the `Authentication` object is set to true by the `Authentication Provider`, and this object is returned to the `Authentication Manager`, which then returns the same object back to the `Security Filters`.
+
+Once the `Security Filters` receive the `Authentication` object from the `Authentication Manager`, they save the authentication details in the `Security Context Holder`. Finally, the request is sent to the `Dispatcher Servlet`, which maps the request to our controllers.
+
+### Security Context Holder
+After successful authentication, the `Authentication` object is set in the `Security Context Holder`. By default, it stores the `Authentication` object in the form of a HashMap. The key for the stored `Authentication` object is stored as a cookie in the client's browser, which is then used for subsequent requests without needing to pass the username/password credentials with every request. By default, this cookie is stored as `JSESSIONID` in the browser. Whenever a new request comes in, Spring Security checks if that cookie is present. If not, the request is rejected.
 
 ## Pros and Cons of Spring Security
 <Pluspoints type={"pros"}>
@@ -48,3 +78,17 @@ TBH - I have never implemented security from scratch. I always use Spring Securi
   <p>Misconfiguration can lead to vulnerabilities if not carefully handled.</p>
 </Pluspoints>
 
+
+## Security Filters
+
+Some important filters in Spring Security are:
+### BasicAuthenticationFilter
+- This filter is responsible for authenticating the user using the username and password when using basic authentication.
+- This filter is responsible for initializing the `Authentication` object.
+- Once the `Authentication` object is created, it is passed to the `Authentication Manager`.
+- If the authentication is successful, the `Authentication` object is stored in the `Security Context Holder`.
+- If the authentication is unsuccessful, a BadCredentialsException exception is thrown.
+
+### AuthorizationFilter
+- This filter is responsible to identify whether the user is trying to access a protected route.
+- This checks for all the authorities and roles that the user has and based on that, it decides whether the user is authorized to access the route or not.
