@@ -14,12 +14,13 @@ I'll try my best to explain how Spring Security works and how you can use it to 
   <BadgeLink href="https://spring.io/projects/spring-security" label="Docs" />
 </div>
 
-#### Security is hard AF!
-Creating a secure application is hard. If you are not careful, you can easily introduce security vulnerabilities into your application. 
-Spring Security helps you to avoid these pitfalls by providing a framework for implementing security measures in your application.
+#### Implementing security from scratch is hard
+Implementing security from scratch is challenging and can easily lead to vulnerabilities if not done correctly. 
+Spring Security simplifies this process by offering a comprehensive framework to secure your application.
 
-Security is something that any application serving content over the internet should take very seriously. 
-For example - if you are building a web application, you should be aware of the following security measures:
+Security is a critical aspect for any application accessible over the internet. 
+For instance, when building a web application, you should consider the following security measures:
+
 * Authentication - verifying the identity of a user.
 * Authorization - determining what a user can and cannot do.
 * Data protection - ensuring that data is secure and cannot be tampered with.
@@ -29,7 +30,7 @@ For example - if you are building a web application, you should be aware of the 
 * Clickjacking protection - preventing clickjacking attacks.
 * Security headers - setting security headers to protect against common security vulnerabilities.
 
-TBH - I have never implemented security from scratch. I always use Spring Security to secure my applications. It's easy to use and provides a lot of features out of the box.
+To be honest, I have never implemented security from scratch. I always rely on Spring Security to secure my applications. It's user-friendly and offers a comprehensive set of features right out of the box.
 
 
 ## Simplified Security Flow
@@ -39,7 +40,7 @@ TBH - I have never implemented security from scratch. I always use Spring Securi
 Spring Security acts as a gatekeeper between the client and the business logic.
 
 ### Client Request
-When a client makes an `HTTP request` to our Tomcat web server running a Spring Boot application, the `HTTP request` is converted to a Java object called `HttpServletRequest` by the web server and sent to the Spring application.
+When a client (such as a web browser or Postman) makes an `HTTP request` to access the API backend, the request is received by the Tomcat web server running the Spring Boot application. The web server converts the `HTTP request` into a Java object called `HttpServletRequest` and forwards it to the Spring application.
 
 ### Security Filters
 Before the `HTTP request` reaches our controller, it is first intercepted by `Security Filters` to perform authentication and authorization logic. The first task of security filters is to convert the credentials received from the `HttpServletRequest` into an `Authentication` object. This object contains fields such as username, password, and isAuthenticated (initially set to false). The username and password are extracted from the `HttpServletRequest`. Once the `Authentication` object is created, it is used throughout the authentication flow.
@@ -65,20 +66,6 @@ Once the `Security Filters` receive the `Authentication` object from the `Authen
 ### Security Context Holder
 After successful authentication, the `Authentication` object is set in the `Security Context Holder`. By default, it stores the `Authentication` object in the form of a HashMap. The key for the stored `Authentication` object is stored as a cookie in the client's browser, which is then used for subsequent requests without needing to pass the username/password credentials with every request. By default, this cookie is stored as `JSESSIONID` in the browser. Whenever a new request comes in, Spring Security checks if that cookie is present. If not, the request is rejected.
 
-## Pros and Cons of Spring Security
-<Pluspoints type={"pros"}>
-  <p>Covers authentication, authorization, and protection against common vulnerabilities.</p>
-  <p>Supports custom authentication and authorization for unique requirements.</p>
-  <p>Suitable for both small projects and large-scale, microservices-based systems.</p>
-  <p>Enforces best practices out-of-the-box.</p>
-</Pluspoints>
-<Pluspoints type={"cons"}>
-  <p>Custom setups can be complicated and harder to maintain.</p>
-  <p>Configuration can be verbose and complex for beginners.</p>
-  <p>Misconfiguration can lead to vulnerabilities if not carefully handled.</p>
-</Pluspoints>
-
-
 ## Security Filters
 
 Some important filters in Spring Security are:
@@ -92,3 +79,16 @@ Some important filters in Spring Security are:
 ### AuthorizationFilter
 - This filter is responsible to identify whether the user is trying to access a protected route.
 - This checks for all the authorities and roles that the user has and based on that, it decides whether the user is authorized to access the route or not.
+
+## Pros and Cons of Spring Security
+<Pluspoints type={"pros"}>
+  <p>Covers authentication, authorization, and protection against common vulnerabilities.</p>
+  <p>Supports custom authentication and authorization for unique requirements.</p>
+  <p>Suitable for both small projects and large-scale, microservices-based systems.</p>
+  <p>Enforces best practices out-of-the-box.</p>
+</Pluspoints>
+<Pluspoints type={"cons"}>
+  <p>Custom setups can be complicated and harder to maintain.</p>
+  <p>Configuration can be verbose and complex for beginners.</p>
+  <p>Misconfiguration can lead to vulnerabilities if not carefully handled.</p>
+</Pluspoints>

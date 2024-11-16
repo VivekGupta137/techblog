@@ -17,13 +17,13 @@ import {
 
 import "@xyflow/react/dist/style.css";
 import { useTheme } from "next-themes";
-import { useCallback } from "react";
-import {CustomNode} from "./CustomNode";
+import { useCallback, useEffect, useState } from "react";
+import { CustomNode } from "./CustomNode";
+import { Skeleton } from "../ui/skeleton";
 
 const nodeTypes = {
     custom: CustomNode,
-  };
-  
+};
 
 const initialNodes: Node[] = [
     {
@@ -32,21 +32,57 @@ const initialNodes: Node[] = [
         data: { label: "username & password from user" },
         type: "custom",
     },
-    { id: "filters", position: { x: 0, y: 200 }, data: { label: "Spring security Filters" } ,type: "custom",},
-    { id: "auth", position: { x: 200, y: 400 }, data: { label: "Authentication" } ,type: "custom",},
-    { id: "auth-manager", position: { x: 300, y: 100 }, data: { label: "Authentication Manager" } ,type: "custom",},
-    { id: "auth-provider", position: { x: 400, y: 200 }, data: { label: "Authentication Provider" } ,type: "custom",},
-    { id: "user-details", position: { x: 400, y: 400 }, data: { label: "User Details Service" } ,type: "custom",},
-    { id: "security-context", position: { x: 0, y: 400 }, data: { label: "Security Context" } ,type: "custom",},
+    {
+        id: "filters",
+        position: { x: 0, y: 200 },
+        data: { label: "Spring security Filters" },
+        type: "custom",
+    },
+    {
+        id: "auth",
+        position: { x: 200, y: 400 },
+        data: { label: "Authentication" },
+        type: "custom",
+    },
+    {
+        id: "auth-manager",
+        position: { x: 300, y: 100 },
+        data: { label: "Authentication Manager" },
+        type: "custom",
+    },
+    {
+        id: "auth-provider",
+        position: { x: 400, y: 200 },
+        data: { label: "Authentication Provider" },
+        type: "custom",
+    },
+    {
+        id: "user-details",
+        position: { x: 400, y: 400 },
+        data: { label: "User Details Service" },
+        type: "custom",
+    },
+    {
+        id: "security-context",
+        position: { x: 0, y: 400 },
+        data: { label: "Security Context" },
+        type: "custom",
+    },
 ];
 
-const generateEdge = (source: string, target: string, label: string, sourceHandle='sa', targetHandle='tb') : Edge => ({
+const generateEdge = (
+    source: string,
+    target: string,
+    label: string,
+    sourceHandle = "sa",
+    targetHandle = "tb"
+): Edge => ({
     id: `e-${source}-${target}`,
     source,
     target,
     animated: true,
     label,
-    
+
     markerEnd: {
         type: MarkerType.ArrowClosed,
         width: 10,
@@ -58,9 +94,9 @@ const generateEdge = (source: string, target: string, label: string, sourceHandl
     },
     sourceHandle,
     targetHandle,
-})
+});
 const initialEdges: Edge[] = [
-    generateEdge("client", "filters", "1", 'sb', 'tt'),
+    generateEdge("client", "filters", "1", "sb", "tt"),
     generateEdge("filters", "auth", "2", "sb", "tt"),
     generateEdge("filters", "auth-manager", "3", "sr", "tl"),
     generateEdge("auth-manager", "auth-provider", "4", "sr", "tt"),
@@ -71,39 +107,59 @@ const initialEdges: Edge[] = [
 ];
 const proOptions = { hideAttribution: true };
 
-const edgeTypes: EdgeTypes = {
-  };
-  
+const edgeTypes: EdgeTypes = {};
 
 const FirstFlow = () => {
     const { resolvedTheme } = useTheme();
     const [nodes, , onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
+    const [colorMode, setColorMode] = useState<ColorMode | null>(null);
     const onConnect = useCallback(
         (params: Edge | Connection) => setEdges((eds) => addEdge(params, eds)),
         [setEdges]
     );
 
-    
+    useEffect(() => {
+        if (resolvedTheme == "system") {
+            setColorMode(null);
+        } else {
+            setColorMode(resolvedTheme as ColorMode);
+        }
+    }, [resolvedTheme]);
 
     return (
-        <div style={{ width: "100%", height: "500px" }} className="group">
-            <ReactFlow
-                colorMode={resolvedTheme as ColorMode}
-                proOptions={proOptions}
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                edgeTypes={edgeTypes}
-                fitView
-                nodeTypes={nodeTypes}
-            >
-                <Background color="#ccc" variant={BackgroundVariant.Dots} />
-                <MiniMap className="hidden group-hover:block" nodeStrokeWidth={12} zoomable pannable />
-            </ReactFlow>
+        <div className="w-full h-[500px]">
+            {colorMode == null && <Skeleton className="w-full h-full rounded-md" />}
+            {colorMode && (
+                <div
+                    className="group w-full h-full "
+                >
+                    <ReactFlow
+                        colorMode={colorMode}
+                        proOptions={proOptions}
+                        nodes={nodes}
+                        edges={edges}
+                        onNodesChange={onNodesChange}
+                        onEdgesChange={onEdgesChange}
+                        onConnect={onConnect}
+                        edgeTypes={edgeTypes}
+                        fitView
+                        nodeTypes={nodeTypes}
+                    >
+                        <Background
+                            color="#ccc"
+                            variant={BackgroundVariant.Dots}
+                        />
+                        <MiniMap
+                            className="hidden group-hover:block"
+                            nodeStrokeWidth={12}
+                            zoomable
+                            pannable
+                        />
+                    </ReactFlow>
+                </div>
+            )}
         </div>
     );
 };
