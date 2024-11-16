@@ -8,18 +8,16 @@ import {
     Background,
     BackgroundVariant,
     MiniMap,
-    Controls,
     Connection,
     ColorMode,
     MarkerType,
     EdgeTypes,
     Node,
-    Position,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
 import { useTheme } from "next-themes";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import {CustomNode} from "./CustomNode";
 
 const nodeTypes = {
