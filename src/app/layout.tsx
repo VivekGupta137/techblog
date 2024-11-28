@@ -50,7 +50,7 @@ const bungeeinline = Bungee_Inline({
 export const metadata: Metadata = {
   title: "Vivek's blog",
   description:
-    "this is not a boring but an interactive blog. I am a software engineer and I write about tech, coding, and life.",
+    "Hi there! 👋 I'm Vivek Gupta, a Software Engineer with a passion for technology and problem-solving. I love diving deep into the world of coding, architecture, and everything in between.",
 };
 
 export default function RootLayout({
